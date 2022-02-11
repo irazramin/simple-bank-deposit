@@ -10,7 +10,7 @@ document.getElementById('login-btn').addEventListener('click', function () {
   const emailValue = email.value
   const passwordValue = password.value
 
-  if (emailValue === 'irazramin@gmail.com' && passwordValue === '1234') {
+  if (emailValue === 'user1@mail.com' && passwordValue === '1234') {
     window.location.href = 'bank.html';
   }
   email.value = '';
