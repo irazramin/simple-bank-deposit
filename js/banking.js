@@ -15,7 +15,6 @@ function getInputFromAndConvert(inputValue) {
   return convertAmountTextToFloat;
 }
 
-
 // set amount to field
 function setAmountToField(amount, totalAmountField) {
   //  amount = deposit / withdraw / ......n
@@ -25,31 +24,37 @@ function setAmountToField(amount, totalAmountField) {
   totalAmountField.innerText = totalAmount;
 }
 
+function currentBalance(totalMoneyField) {
+  let convertTotalMoneyText = parseFloat(totalMoneyField.innerText);
+  return convertTotalMoneyText;
+}
+
 // calculate total amount
-function calculateTotalMoney(inputFieldValue,totalMoneyField,isAdd){
+function calculateTotalMoney(inputFieldValue, totalMoneyField, isAdd) {
   // inputFieldValue  = deposit / withdraw / ......n
-  if(isAdd){
-    let convertTotalMoneyText = parseFloat(totalMoneyField.innerText);
-    const calculateTotalMoney = convertTotalMoneyText + inputFieldValue;
+  debugger;
+  if (isAdd) {
+    const convertTotalMoneyText = currentBalance(totalMoneyField);
+    const calculateTotalMoney = parseFloat(convertTotalMoneyText) + inputFieldValue;
     totalMoneyField.innerText = calculateTotalMoney;
-  }else{
+  } else {
     let convertTotalMoneyText = parseFloat(totalMoneyField.innerText);
     const calculateTotalMoney = convertTotalMoneyText - inputFieldValue;
     totalMoneyField.innerText = calculateTotalMoney;
   }
 }
 
-
 // deposit
 depositBtn.addEventListener('click', function () {
   // //get value from user
   const convertDepositInputValue = getInputFromAndConvert(depositInput);
 
-  // set amount to field
-  setAmountToField(convertDepositInputValue, totalDepositText);
-
-  // calculate total amount
-  calculateTotalMoney(convertDepositInputValue, totalMoneyText, true);
+  if(convertDepositInputValue > 0){
+    // set amount to field
+    setAmountToField(convertDepositInputValue, totalDepositText);
+    // calculate total amount
+    calculateTotalMoney(convertDepositInputValue, totalMoneyText, true);
+  }
 });
 
 // withdraw
@@ -57,9 +62,17 @@ withdrawBtn.addEventListener('click', function () {
   // get value from user
   const convertWithdrawInputValue = getInputFromAndConvert(withdrawInput);
 
-  //set amount to field
-  setAmountToField(convertWithdrawInputValue, totalWithdrawText);
 
-  // calculate total amount
-  calculateTotalMoney(convertWithdrawInputValue, totalMoneyText,false);
+  const currentTotalBalance = currentBalance(totalMoneyText);
+
+ 
+  if (
+    convertWithdrawInputValue > 0 &&
+    convertWithdrawInputValue <= currentTotalBalance
+  ) {
+    //set amount to field
+    setAmountToField(convertWithdrawInputValue, totalWithdrawText);
+    // calculate total amount
+    calculateTotalMoney(convertWithdrawInputValue, totalMoneyText, false);
+  }
 });
