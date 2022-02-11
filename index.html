@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bank deposit</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="w-3/4 h-3/4 m-auto bg-cyan-200">
+    <header>
+      <h1 class="text-4xl text-center mt-16">Bank deposit</h1>
+    </header>
+    <main class="shadow-md w-full h-full my-auto p-8">
+      <section class="w-3/4 mx-auto">
+        <div
+          class="w-2/3 mx-auto p-8 bg-gradient-to-r from-cyan-500 to-indigo-500 rounded-lg shadow-md"
+        >
+          <input
+            id="login-email"
+            class="mb-6 m-auto w-full bg-transparent text-white placeholder:text-white px-5 py-2 focus:outline-none border-b-2 border-b-neutral-300 focus:border-b-white"
+            type="email"
+            placeholder="email"
+          />
+          <input
+            id="login-password"
+            class="mb-6 m-auto w-full bg-transparent text-white placeholder:text-white px-5 py-2 focus:outline-none border-b-2 border-b-neutral-300 focus:border-b-white"
+            type="password"
+            placeholder="password"
+          />
+          <button
+          id="login-btn"
+            class="bg-white text-purple-700 rounded-3xl mt-6 px-5 py-2 text-center w-full"
+          >
+            Login
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/index.js"></script>
+  </body>
+</html>

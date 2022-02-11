@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bank</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="w-3/4 mx-auto p-3">
+    <header>
+      <h1 class="text-4xl text-center mt-16">Profile</h1>
+    </header>
+
+    <main class="mt-5 shadow-md w-full h-full my-auto p-8">
+      <section class="">
+        <div class="grid grid-cols-3 gap-6">
+          <div class="bg-green-200 p-5 rounded-xl shadow-lg">
+            <h2 class="text-2xl text-slate-700">Deposit</h2>
+            <h1  class="text-6xl font-semibold text-slate-700">
+              $<span id="total-deposit">0</span>
+            </h1>
+          </div>
+          <div class="bg-pink-200 p-5 rounded-xl shadow-lg">
+            <h2 class="text-2xl text-slate-700">Withdraw</h2>
+            <h1  class="text-6xl font-semibold text-slate-700">
+              $<span id="total-withdraw">0</span>
+            </h1>
+          </div>
+          <div class="bg-cyan-200 p-5 rounded-xl shadow-lg">
+            <h2 class="text-2xl text-slate-700">Total Amount</h2>
+            <h1  class="text-6xl font-semibold text-slate-700">
+              $<span id="total-money">1200</span>
+            </h1>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-20">
+        <div class="grid grid-cols-2 gap-6">
+          <d6v class="p-5 bg-lime-200 rounded-xl shadow-lg">
+            <h2 class="text-2xl text-slate-700">Deposit</h2>
+            <div>
+              <input
+                id="deposit-input"
+                class="block focus:outline-none mt-4  px-3 py-2 rounded-lg"
+                type="text"
+                placeholder="Deposit"
+              />
+              <button
+                id="deposit-btn"
+                class="bg-red-500 text-white px-4 py-2 rounded-lg mt-5"
+              >
+                Deposit
+              </button>
+            </div>
+          </d6v>
+          <div class="p-5 bg-amber-200 rounded-xl shadow-lg">
+            <h2 class="text-2xl text-slate-700">Withdraw</h2>
+            <div>
+              <input
+                id="withdraw-input"
+                class="block focus:outline-none mt-4  px-3 py-2 rounded-lg"
+                type="text"
+                placeholder="Withdraw"
+              />
+              <button
+                id="withdraw-btn"
+                class="bg-red-500 text-white px-4 py-2 rounded-lg mt-5"
+              >
+                Withdraw
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    
+
+    <script src="banking.js"></script>
+  </body>
+</html>
